@@ -1,21 +1,14 @@
 import {
   // Core fetch functions
-  executeGraphQLQuery, // Raw GraphQL execution
-  getObjectByAddress, // Object with BCS data
   getObjectWithJson, // Object with JSON contents
-  getObjectWithDynamicFields, // Object + dynamic fields
 
   // Assembly + Owner (most useful for EVE)
   getAssemblyWithOwner, // Assembly + character info in one call
-  getObjectAndCharacterOwner, // Lower-level version
 
   // Ownership queries
   getOwnedObjectsByType, // Objects of type owned by address
-  getOwnedObjectsByPackage, // Objects from package owned by address
 
   // Type-based queries
-  getObjectsByType, // All objects of a type (paginated)
-  getSingletonObjectByType, // First object of a type
 
   // Transformation functions
   transformToAssembly,
@@ -29,7 +22,7 @@ import {
  */
 async function fetchAssemblyInfo(assemblyId: string) {
   // 1. Fetch raw data from GraphQL
-  const { moveObject, character } = await getAssemblyWithOwner(assemblyId);
+  const { moveObject, assemblyOwner: character } = await getAssemblyWithOwner(assemblyId);
 
   if (!moveObject) {
     console.error("Assembly not found");

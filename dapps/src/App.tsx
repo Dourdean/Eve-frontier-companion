@@ -1,4 +1,5 @@
-import { Box, Container, Flex, Heading } from "@radix-ui/themes";
+import { AuxiliaryPanel } from "./AuxiliaryPanel";
+import { Box, Flex, Heading } from "@radix-ui/themes";
 import { WalletStatus } from "./WalletStatus";
 import { abbreviateAddress, useConnection } from "@evefrontier/dapp-kit";
 import { useCurrentAccount } from "@mysten/dapp-kit-react";
@@ -27,7 +28,7 @@ function App() {
           justifyContent: "space-between",
         }}
       >
-        <Heading>EVE Frontier dApp Starter Template</Heading>
+        <Heading>AUXILIARY</Heading>
 
         {/* STEP 2 — Connect/disconnect; show abbreviated address in header. */}
         <button
@@ -39,7 +40,9 @@ function App() {
         </button>
       </Flex>
       {/* STEP 3 — Same hooks (useConnection, useCurrentAccount) drive WalletStatus; state stays in sync. */}
+      <p style={{ color: "#63DCD6", fontSize: "18px" }}>Awaiting your instructions, Sigzil.</p>
       <WalletStatus />
+      <AuxiliaryPanel />
     </Box>
   );
 }
