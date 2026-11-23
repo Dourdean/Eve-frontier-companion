@@ -1,3 +1,4 @@
+import { AssemblyDiscovery } from "./AssemblyDiscovery";
 import { useState } from "react";
 
 const systems = {
@@ -38,6 +39,7 @@ export function AuxiliaryPanel() {
           </button>
         ))}
       </nav>
+      {tab === "Overview" && <AssemblyDiscovery />}
       <h2 style={{ color: "#63DCD6", marginTop: 24 }}>
         {tab.toUpperCase()}
       </h2>
